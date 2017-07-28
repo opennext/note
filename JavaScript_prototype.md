@@ -71,6 +71,6 @@ var c = Object.create(a, {y: {value: 30}});
 ```
 
   通常情况下需要使用构造函数(constructor)来创造对象。
-  后面文字中继续来回忆constructor。
+  后续篇章继续来回忆constructor。
 
   （主要内容引自 http://dmitrysoshnikov.com/ecmascript/javascript-the-core/）
