@@ -1,1 +1,1 @@
-decode http://ddecode.com/hexdecoder/
+This is the my study note, summary.
