@@ -1,3 +1,21 @@
+Function的属性:
+- Function.arguments(已废弃)
+- Function.arity(已废弃)
+- Function.caller
+- Function.displayName(非标准)
+- Function.length
+- Function.name
+- Function.prototype
+
+Function的方法：
+- Function.prototype.apply()
+- Function.prototype.bind()
+- Function.prototype.call()
+- Function.prototype.isGenerator()(非标准)
+- Function.prototype.toSource()
+- Function.prototype.toString()
+
+本文将介绍apply的用法
 ### Function.prototype.apply()
 apply() 方法调用一个函数, 其具有一个指定的this值，以及作为一个数组（或类似数组的对象）提供的参数。  
 ```

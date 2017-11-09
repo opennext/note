@@ -1,3 +1,21 @@
+Function的属性:
+- Function.arguments(已废弃)
+- Function.arity(已废弃)
+- Function.caller
+- Function.displayName(非标准)
+- Function.length
+- Function.name
+- Function.prototype
+
+Function的方法：
+- Function.prototype.apply()
+- Function.prototype.bind()
+- Function.prototype.call()
+- Function.prototype.isGenerator()(非标准)
+- Function.prototype.toSource()
+- Function.prototype.toString()
+
+本文将介绍call的用法
 ### Function.prototype.call()
 call() 方法调用一个函数, 其具有一个指定的this值和分别地提供的参数(参数的列表)。  
 该方法的作用和 apply() 方法类似，只有一个区别，就是call()方法接受的是若干个参数的列表，而apply()方法接受的是一个包含多个参数的数组。
