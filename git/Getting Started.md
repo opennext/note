@@ -1,0 +1,107 @@
+## 版本控制的历史
+- 本地版本控制系统: 大多都是采用某种简单的数据库来记录文件的历次更新差异。  
+>RCS：甚至在流行的 Mac OS X 系统上安装了开发者工具包之后，也可以使用 rcs 命令。它的工作原理是在硬盘上保存补丁集（补丁是指文件修订前后的变化）；通过应用所有的补丁，可以重新计算出各个版本的文件内容。  
+
+- 集中化的版本控制系统 Centralized Version Control Systems，简称 CVCS
+>诸如 CVS、Subversion 以及 Perforce 等，都有一个单一的集中管理的服务器，保存所有文件的修订版本，而协同工作的人们都通过客户端连到这台服务器，取出最新的文件或者提交更新。 多年以来，这已成为版本控制系统的标准做法。
+
+- 分布式版本控制系统（Distributed Version Control System，简称 DVCS）
+>像 Git、Mercurial、Bazaar 以及 Darcs 等，客户端并不只提取最新版本的文件快照，而是把代码仓库完整地镜像下来。 这么一来，任何一处协同工作用的服务器发生故障，事后都可以用任何一个镜像出来的本地仓库恢复。 因为每一次的克隆操作，实际上都是一次对代码仓库的完整备份。
+
+## Git 历史
+- 1991－2002：绝大多数的 Linux 内核维护工作都花在了提交补丁和保存归档的繁琐事务上  
+- 2002，整个项目组启用一个分布式版本控制系统BitKeeper来管理和维护代码
+- 2005，开发 BitKeeper 的商业公司同Linux内核社区的合作关系结束
+- Linus Torvalds要求SCM的目标：
+  Speed
+  Simple design
+  Non-linear development(thousands of branches)
+  Distributed
+  Able to handle large projects
+
+## Git 基础
+### 直接记录快照，而非差异比较
+- 类svn版本控制系统：将它们保存的信息看作是一组基本文件和每个文件随时间逐步累积的**差异**
+![存储每个文件与初始版本的差异](getstarted-1.png)
+
+- Git 更像是把数据看作是对小型文件系统的一组快照。 每次你提交更新，或在 Git 中保存项目状态时，它主要对当时的**全部文件**制作一个快照并保存这个快照的索引。 
+![存储项目随时间改变的快照](getstarted-2.png)
+
+### 近乎所有操作都是本地执行
+- Git 中的绝大多数操作都只需要访问本地文件和资源
+- 要浏览项目的历史，Git 不需外连到服务器去获取历史
+
+
+### Git 保证完整性
+- 所有数据在存储前都计算校验和，然后以校验和来引用
+- Git数据库中保存的信息都是以文件内容的哈希值来索引，而不是文件名。
+- Git用以计算校验和的机制叫做 SHA-1 散列（hash，哈希）：``24b9da6552252987aa493b52f8696cd6d3b00373`` 
+
+### Git 一般只添加数据
+
+### 三种状态
+Git 有三种状态 
+ - 已修改（modified）:已修改表示修改了文件，但还没保存到数据库中
+ - 已暂存（staged）:对一个已修改文件的当前版本做了标记，使之包含在下次提交的快照中
+ - 已提交（committed）:已经安全的保存在本地数据库中
+
+三个工作区域的概念：
+- 工作目录：对项目的某个版本独立提取出来的内容。这些从 Git 仓库的压缩数据库中提取出来的文件，放在磁盘上供你使用或修改
+- 暂存区域：是一个文件，保存了下次将提交的文件列表信息，一般在 Git 仓库目录中
+- Git仓库：是 Git 用来保存项目的元数据和对象数据库的地方，从其它计算机克隆仓库时，拷贝的就是这里的数据
+
+![工作目录、暂存区域以及 Git 仓库](getstarted-3-area.png)
+
+基本的 Git 工作流程如下：
+
+- 在工作目录中修改文件
+- 暂存文件，将文件的快照放入暂存区域
+- 提交更新，找到暂存区域的文件，将快照永久性存储到 Git 仓库目录
+
+
+>你的本地仓库由 git 维护的三棵“树”组成:  
+  *工作目录Working dir，它持有实际文件*  
+  *暂存区（Index），它像个缓存区域，临时保存你的改动*  
+  *HEAD，它指向你最后一次提交的结果*  
+![工作目录、暂存区域以及 Git 仓库](getstarted-4.png) 
+
+
+## Git的配置
+- /etc/gitconfig 文件: 包含系统上每一个用户的通用配置, ``git config --system `` 
+- ~/.gitconfig 或 ~/.config/git/config 文件：只针对当前用户``git config --global ``
+- 当前使用仓库的 Git 目录中的 config 文件（就是 .git/config）
+
+
+**用户信息**：每一个 Git 的提交都会使用这些信息，并且它会写入到你的每一次提交中，不可更改：
+```
+$ git config --global user.name "John Doe"
+$ git config --global user.email johndoe@example.com
+```
+
+**文本编辑器**：如果未配置，使用操作系统默认的文本编辑器，通常是 Vim
+```
+$ git config --global core.editor emacs
+```
+```
+$ git config --list
+user.name=John Doe
+user.email=johndoe@example.com
+color.status=auto
+color.branch=auto
+color.interactive=auto
+color.diff=auto
+...
+```
+```
+$ git config user.name
+John Doe
+```
+**获取帮助**
+```
+$ git help <verb>
+$ git <verb> --help
+$ man git-<verb>
+
+//例如，要想获得 config 命令的手册，执行
+$ git help config
+```
