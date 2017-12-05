@@ -267,3 +267,22 @@ From https://github.com/paulboone/ticgit
 `$ git fetch [remote-name]`：将会拥有那个远程仓库中所有分支的引用，可以随时合并或查看。并不会自动合并或修改你当前的工作
  
 `git pull`： 通常会从最初克隆的服务器上抓取数据并自动尝试合并到当前所在的分支。
+
+### 推送到远程仓库
+```$ git push origin master```
+
+### 查看远程仓库
+```$ git remote show origin```
+
+### 远程仓库的移除与重命名
+```
+$ git remote rename pb paul
+$ git remote
+origin
+paul
+```
+```
+$ git remote rm paul
+$ git remote
+origin
+```
