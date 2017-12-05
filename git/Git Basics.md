@@ -287,3 +287,107 @@ $ git remote rm paul
 $ git remote
 origin
 ```
+## 打标签
+### 列出标签
+```
+$ git tag
+v0.1
+v1.3
+```
+```
+$ git tag -l 'v1.8.5*'
+v1.8.5
+v1.8.5-rc0
+v1.8.5-rc1
+```
+### 创建标签
+*轻量标签（lightweight）与附注标签（annotated）*
+>一个轻量标签很像一个不会改变的分支 - 它只是一个特定提交的引用。
+>附注标签是存储在 Git 数据库中的一个完整对象：
+>- 它们是可以被校验的；其中包含打标签者的名字、电子邮件地址、日期时间
+>- 还有一个标签信息；并且可以使用 GNU Privacy Guard （GPG）签名与验证
+>- 建议创建附注标签，但是如果你只是想用一个临时的标签，轻量标签也是可用的
+### 附注标签
+```
+$ git tag -a v1.4 -m 'my version 1.4'
+$ git tag
+v0.1
+v1.3
+v1.4
+```
+```
+$ git show v1.4
+tag v1.4
+Tagger: Ben Straub <ben@straub.cc>
+Date:   Sat May 3 20:19:12 2014 -0700
+
+my version 1.4
+
+commit ca82a6dff817ec66f44342007202690a93763949
+Author: Scott Chacon <schacon@gee-mail.com>
+Date:   Mon Mar 17 21:52:11 2008 -0700
+
+    changed the version number
+```
+### 轻量标签
+```
+$ git tag v1.4-lw
+$ git tag
+v0.1
+v1.3
+v1.4
+v1.4-lw
+```
+### 后期打标签
+提交历史是这样：
+```
+$ git log --pretty=oneline
+15027957951b64cf874c3557a0f3547bd83b3ff6 Merge branch 'experiment'
+9fceb02d0ae598e95dc970b74767f19372d61af8 updated rakefile
+
+```
+现在，假设在 v1.2 时你忘记给项目打标签，也就是在 `updated rakefile` 提交。 末尾指定提交的校验和（或部分校验和）:
+```
+$ git tag -a v1.2 9fceb02`
+
+$ git show v1.2
+tag v1.2
+Tagger: Scott Chacon <schacon@gee-mail.com>
+Date:   Mon Feb 9 15:32:16 2009 -0800
+
+version 1.2
+commit 9fceb02d0ae598e95dc970b74767f19372d61af8
+Author: Magnus Chacon <mchacon@gee-mail.com>
+Date:   Sun Apr 27 20:43:35 2008 -0700
+
+    updated rakefile
+...
+```
+
+### 共享标签
+`$ git push origin [tagname]`  
+`$ git push origin --tags`  
+
+### 检出标签
+`git checkout -b [branchname] [tagname]` 在特定的标签上创建一个新分支：
+```
+$ git checkout -b version2 v2.0.0
+Switched to a new branch 'version2'
+```
+
+## Git 别名
+```
+$ git config --global alias.co checkout
+$ git config --global alias.br branch
+$ git config --global alias.ci commit
+$ git config --global alias.st status
+```
+
+查看最后一次提交  
+`$ git config --global alias.last 'log -1 HEAD'`  
+
+取消暂存  
+`$ git config --global alias.unstage 'reset HEAD --'`  
+
+!使用外部命令  
+`$ git config --global alias.visual '!gitk'`  
