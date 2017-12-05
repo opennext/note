@@ -81,6 +81,9 @@ $ git config --global user.email johndoe@example.com
 **文本编辑器**：如果未配置，使用操作系统默认的文本编辑器，通常是 Vim
 ```
 $ git config --global core.editor emacs
+or
+$ git config --global core.editor vim
+
 ```
 ```
 $ git config --list
