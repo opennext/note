@@ -125,6 +125,13 @@ a11bef0 - Scott Chacon, 6 years ago : first commit
 ```
 
 Table 1. git log --pretty=format 常用的选项  
+| Type | Content |
+| - | - | 
+| ?? | 新添加的未跟踪 |
+| A | 新添加到暂存区 |
+| M | 右：表示该文件被修改了但是还没放入暂存区，左：文件被修改了并放入了暂存区 |
+
+
 | 选项	| 说明 |
 | - | - |
 | %H | 提交对象（commit）的完整哈希字串 |
