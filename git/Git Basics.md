@@ -124,13 +124,7 @@ ca82a6d - Scott Chacon, 6 years ago : changed the version number
 a11bef0 - Scott Chacon, 6 years ago : first commit
 ```
 
-Table 1. git log --pretty=format 常用的选项  
-| Type | Content |
-| - | - | 
-| ?? | 新添加的未跟踪 |
-| A | 新添加到暂存区 |
-| M | 右：表示该文件被修改了但是还没放入暂存区，左：文件被修改了并放入了暂存区 |
-
+#### Table 1. git log --pretty=format 常用的选项  
 
 | 选项	| 说明 |
 | - | - |
@@ -150,7 +144,7 @@ Table 1. git log --pretty=format 常用的选项
 | %cr | 提交日期，按多久以前的方式显示 |
 | %s | 提交说明 |
 
-Table 2. git log 的常用选项  
+#### Table 2. git log 的常用选项  
 | 选项	| 说明 |
 | - | - |
 | -p|按补丁格式显示每个更新之间的差异。 |
@@ -170,7 +164,7 @@ $ git log --since=2.weeks //--since 和 --until
 // 筛选选项是 -S
 $ git log -S function_name
 ```
-Table 3. 限制 git log 输出的选项  
+#### Table 3. 限制 git log 输出的选项  
 | 选项	| 说明 |
 | - | - |
 | -(n) | 仅显示最近的 n 条提交 |
