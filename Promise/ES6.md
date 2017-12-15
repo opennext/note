@@ -1,5 +1,7 @@
 https://raw.githubusercontent.com/ruanyf/es6tutorial/gh-pages/docs/promise.md 
 
+
+
 # Promise 对象
 
 ## Promise 的含义
