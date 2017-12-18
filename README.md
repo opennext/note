@@ -6,3 +6,7 @@ Rember to learn wherever and whenever.
 
 1. Git Book Lite  
 note/git
+
+
+
+*webpack grunt glup lodash es6-aysc redux yarn promise servicework* angular-config-run rxjs babel modules react-server next.js beidou node express 
