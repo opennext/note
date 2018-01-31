@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+        <title>CAPH Button Sample for jQuery</title>
+        <script type="text/javascript" src="build/jquery.min.js"></script>
+        <script type='text/javascript' language='javascript' src='webapis/src/webapi.js'></script>    
+        <link href="build/caph.min.css" rel="stylesheet" type="text/css">
+        <link href="build/caph-stripe.min.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="build/caph-jquery.min.js"></script>
+    </head>
+    <style>
+    body {
+        background-color: black;
+    }
+    #result{
+     color: white;   
+    }
+    </style>
+<body>
+<p style="color: #ffffff">计数: <output id="result"></output></p>
+<div id="button1">开始 Worker</div> 
+<div id="button2">停止 Worker</div>
+<br /><br />
+
+<script>
+$('#button1').caphButton({
+    onFocused :function(event,originalEvent){
+        $(event.currentTarget).css({
+            border : '2px solid red'
+        });
+    },
+    onBlurred:function(event,originalEvent){
+         $(event.currentTarget).css({
+             border : ''
+         });
+    },
+    onSelected :function(event,originalEvent,selected){
+        var div = $("#selected"); 
+        console.log(selected);
+        startWorker()
+    }
+
+});
+$('#button2').caphButton({
+    onFocused :function(event,originalEvent){
+        $(event.currentTarget).css({
+            border : '2px solid red'
+        });
+    },
+    onBlurred:function(event,originalEvent){
+        $(event.currentTarget).css({
+            border : ''
+        });
+    },
+    onSelected :function(event,originalEvent,selected){
+        console.log(event);
+        stopWorker()
+    }
+});
+
+var w;
+function startWorker() {
+    if(typeof(Worker)!=="undefined")
+    {
+    if(typeof(w)=="undefined")
+    {
+    w=new Worker("demo_workers.js");
+    }
+    w.onmessage = function (event) {
+            document.getElementById("result").innerHTML=event.data;
+        };
+    }
+    else   {
+        document.getElementById("result").innerHTML="Sorry, your browser does not support Web Workers...";
+    }
+}
+
+    function stopWorker()
+    { 
+        w.terminate();
+    }
+</script>
+
+</body>
+</html>
