@@ -20,3 +20,6 @@
 ```
 
 https://www.cnblogs.com/fenghuan/p/4794514.html
+
+linux 系统下编译cpp文件  
+http://blog.csdn.net/smallplum123/article/details/71513221
