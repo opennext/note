@@ -18,6 +18,7 @@ Function的方法：
 本文将介绍call的用法
 ### Function.prototype.call()
 call() 方法调用一个函数, 其具有一个指定的this值和分别地提供的参数(参数的列表)。  
+在特定的作用域中调用函数,能改变函数的作用域，实际上是改变函数体内 this 的值 。
 该方法的作用和 apply() 方法类似，只有一个区别，就是call()方法接受的是若干个参数的列表，而apply()方法接受的是一个包含多个参数的数组。
 ```
 fun.call(thisArg, arg1, arg2, ...)
