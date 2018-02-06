@@ -1,0 +1,20 @@
+#A simple javascript library to turn text into vector UML sequence diagrams. 
+#Heavily inspired by websequencediagrams.com, who offer a serverside solution. 
+#We use Jison to parse the text, and Snap.svg to draw the image.
+
+# https://bramp.github.io/js-sequence-diagrams/
+
+# VSCode Sequence Diagrams
+
+Andrew->China: Says Hello 
+Note right of China: China thinks\nabout it 
+China-->Andrew: How are you? 
+Andrew->>China: I am good thanks!
+
+
+
+
+A->B: Normal line 
+B-->C: Dashed line 
+C->>D: Open arrow 
+D-->>A: Dashed open arrow
