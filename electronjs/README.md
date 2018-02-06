@@ -15,14 +15,6 @@
 
 ### 运行时时序图
 
-|node::LoadEnvironment(src/node.cc)|
-|-|
-|dfd|
-
-
-```sequence
-participant A
-participant B
-```
+#### 1. [from node core to main.js](sequences/README.md)
 
 
