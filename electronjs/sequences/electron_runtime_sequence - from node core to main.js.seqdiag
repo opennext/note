@@ -2,42 +2,39 @@ title: electronjs runtime sequence: node core -> main.js
 # ------------Node core--------------
 LoadEnvironment->>bootstrap_node.js: invoke
 bootstrap_node.js->>bootstrap_node.js: startup
-Note over bootstrap_node.js: responsible for bootstrapping \nthe node.js core
-Note left of LoadEnvironment: NODE - src/node.cc
+Note over bootstrap_node.js:bootstrapping \nthe node.js core
+Note left of LoadEnvironment: NODE-node.cc
 
 bootstrap_node.js->>Moudle: runMain
-Note over Moudle: NODE - moudle.js
+Note over Moudle: NODE-moudle.js
 
 Moudle->>Moudle: Module.prototype.load
+Note over Moudle: /usr/local/lib/node_modules/\nelectron/dist/resources/\nelectron.asar/browser/init.js
 Moudle-->>init.js_module: create
 init.js_module->>init.js_module: call
-Note over Moudle: /usr/local/lib/node_modules/electron/\ndist/resources/electron.asar/browser/init.js
-Note over init.js_module: 1)load app's package.json\n2)Set main startup script of the app.\n3)Finally load app's main.js \nand transfer control to C++
+Note over init.js_module: 1)load app's package.json\n2)Set main startup script\n3)Load app's main.js \nand transfer control to C++
 
 # ------------electron Business--------------
 init.js_module->>Moudle: _load
+Note over Moudle: .../resources/\ndefault_app.asar/main.js
 Moudle->>Moudle: Module.prototype.load
-Moudle-->>main.js_module: create
-Note over Moudle: .../resources/default_app.asar/main.js
-Note over main.js_module: app's main.js
+Moudle-->>main.js_module(default_app): create
+Note over main.js_module(default_app): app's main.js
 
-main.js_module->>main.js_module: call()
-Note over main.js_module: 1)Parse command line options\n 2)app.on('window-all-closed',...) \n3)Create default menu \n4)Start the specified app:->
+main.js_module(default_app)->>main.js_module(default_app): call()
+Note over main.js_module(default_app): 1)Parse command line options\n 2)app.on('window-all-closed',...) \n3)Create default menu \n4)Start the specified app:->
 
-main.js_module->>main.js_module: loadApplicationPackage
-Note over main.js_module: .../demos/electron-quick-start\n1)packageJson: override app name and version\n2)Run the app
+main.js_module(default_app)->>main.js_module(default_app): loadApplicationPackage
+Note over main.js_module(specified): .../demos/electron-quick-start\n1)packageJson: \noverride app name/version\n2)Run the app
 
-main.js_module->>Moudle: Module._load(packagePath, module, true)
-main.js_module->>main.js_module: call
+main.js_module(default_app)->>Moudle: Module._load()
+Moudle-->>main.js_module(specified): create
+main.js_module(specified)->>main.js_module(specified): call
 
-main.js_module->>electron.app: require('electron')
-Note over electron.app: app.on('ready', createWindow)\napp.on('window-all-closed', ...)\napp.on('activate',...)
+main.js_module(specified)->>electron.app: require('electron')
+Note over electron.app: on('ready', createWindow_CB)\non('window-all-closed', ...)\non('activate',...)
 
-EventEmitter->>createWindow_CB: EventEmitter.prototype.emit
+EventEmitter->>createWindow_CB: prototype.emit
 createWindow_CB->>BrowserWindow: create
 
-Note over BrowserWindow: electron\lib\browser\api\browser-window.js
-
-
-
-
+Note over BrowserWindow: lib\browser\api\browser-window.js
