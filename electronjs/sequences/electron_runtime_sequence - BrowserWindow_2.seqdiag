@@ -1,0 +1,2 @@
+main.js->>BrowserWindow: create instance
+BrowserWindow->>BrowserWindow:prototype._init

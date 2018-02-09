@@ -23,3 +23,7 @@ https://www.cnblogs.com/fenghuan/p/4794514.html
 
 linux 系统下编译cpp文件  
 http://blog.csdn.net/smallplum123/article/details/71513221
+
+
+C++入门教程，C++基础教程《C++小白变怪兽》  
+http://c.biancheng.net/cpp/biancheng/cpp/rumen/

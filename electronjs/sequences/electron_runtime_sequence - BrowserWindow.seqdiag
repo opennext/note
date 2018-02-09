@@ -1,0 +1,10 @@
+title: BrowserWindow
+node.cc->>bootstrap_node.js:invoke
+bootstrap_node.js->>Module: run
+Module->>Module: runMain
+Note over Module: Load the main module
+
+Module->>Module: _load
+Note over Module: 1).../browser/init.js\n2).../browser/api/app.js\n3).../browser/api/menu.js\n4).../browser/api/browser-window.js
+Module-->>BrowserWindow:_compile
+Note over Module: Run the file contents in\nthe correct scope or sandbox
