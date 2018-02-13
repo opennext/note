@@ -1,0 +1,67 @@
+<html>
+<head>
+<style>
+#example {
+    background-color: #212121;
+    color: #F2F2F2;
+    font-family: 'Myriad Pro', Calibri, Helvetica, Arial, sans-serif;
+    font-size: small;
+	height: 550px;
+}
+
+#example a {
+    text-decoration: none;
+    color: #007edf;
+}
+
+#example p {
+    margin: 2px;
+}
+
+#example img {
+	border: none;
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	-o-box-shadow: none;
+	-ms-box-shadow: none;
+}
+
+#example audio {
+    width: 100%;
+}
+
+#example .showIfNoApi {
+    display: none;
+}
+
+#example #visualisation {
+    height: 255px;
+    position: relative;
+    margin: 10px;
+    -webkit-box-reflect: below 3px -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(255,255,255,0.2)));
+}
+
+#example #visualisation > div {
+    width: 2.5%;
+    background-color: darkorange;
+    display: inline-block;
+    position: absolute;
+    bottom: 0px;
+}
+</style>
+<script src="jquery-1.8.3.min.js"></script>
+<script src="main.js"></script>
+</head>
+<body>
+<div id="example">
+	<audio id="player" class="hideIfNoApi" controls="controls" src="http://ianreah.apphb.com/sounds/movement%20proposition.mp3" crossorigin="anonymous"> </audio>
+	<p class="hideIfNoApi"><strong>Music: </strong><em>Movement Proposition,</em> Kevin MacLeod (<a href="http://incompetech.com/">incompetech.com</a>)</p>
+
+	<div id="visualisation" class="hideIfNoApi"> <div style="left: 0%; height: 0px;"></div><div style="left: 3.125%; height: 0px;"></div><div style="left: 6.25%; height: 0px;"></div><div style="left: 9.375%; height: 0px;"></div><div style="left: 12.5%; height: 0px;"></div><div style="left: 15.625%; height: 0px;"></div><div style="left: 18.75%; height: 0px;"></div><div style="left: 21.875%; height: 0px;"></div><div style="left: 25%; height: 0px;"></div><div style="left: 28.125%; height: 0px;"></div><div style="left: 31.25%; height: 0px;"></div><div style="left: 34.375%; height: 0px;"></div><div style="left: 37.5%; height: 0px;"></div><div style="left: 40.625%; height: 0px;"></div><div style="left: 43.75%; height: 0px;"></div><div style="left: 46.875%; height: 0px;"></div><div style="left: 50%; height: 0px;"></div><div style="left: 53.125%; height: 0px;"></div><div style="left: 56.25%; height: 0px;"></div><div style="left: 59.375%; height: 0px;"></div><div style="left: 62.5%; height: 0px;"></div><div style="left: 65.625%; height: 0px;"></div><div style="left: 68.75%; height: 0px;"></div><div style="left: 71.875%; height: 0px;"></div><div style="left: 75%; height: 0px;"></div><div style="left: 78.125%; height: 0px;"></div><div style="left: 81.25%; height: 0px;"></div><div style="left: 84.375%; height: 0px;"></div><div style="left: 87.5%; height: 0px;"></div><div style="left: 90.625%; height: 0px;"></div><div style="left: 93.75%; height: 0px;"></div><div style="left: 96.875%; height: 0px;"></div></div>
+
+	<p class="showIfNoApi">Unable to run this Web Audio API example. <a href="http://caniuse.com/#feat=audio-api">Check browser support</a></p>
+	<img class="showIfNoApi" src="/img/post-2013-02-19-screenshot.png">
+</div>
+</body>
+</html>

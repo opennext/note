@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!-- saved from url=(0072)http://ianreah.com/audio-visualizer-experiments/frequency-bar-chart.html -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Frequency Bar Chart</title>
+	<link rel="stylesheet" type="text/css" href="./Frequency Bar Chart_files/jquery-ui.tabs.css">
+	<link rel="stylesheet" type="text/css" href="./Frequency Bar Chart_files/common.css">
+	<link rel="stylesheet" type="text/css" href="./Frequency Bar Chart_files/frequency-bar-chart.css">
+	
+	<script type="text/javascript" async="" src="./Frequency Bar Chart_files/ga.js.download"></script><script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-34488349-1']);
+		_gaq.push(['_trackPageview']);
+		
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="AudioAnalyser" src="./Frequency Bar Chart_files/AudioAnalyser.js.download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="frequency-bar-chart" src="./Frequency Bar Chart_files/frequency-bar-chart.js.download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery-ui.tabs" src="./Frequency Bar Chart_files/jquery-ui.tabs.js.download"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jsFrames.min" src="./Frequency Bar Chart_files/jsFrames.min.js.download"></script></head>
+<body>
+
+    <div id="tabs" class="hideIfNoApi ui-tabs ui-widget ui-widget-content ui-corner-all">
+        <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all" role="tablist">
+            <li class="ui-state-default ui-corner-top ui-tabs-active ui-state-active" role="tab" tabindex="0" aria-controls="tabs-1" aria-labelledby="ui-id-1" aria-selected="true"><a href="http://ianreah.com/audio-visualizer-experiments/frequency-bar-chart.html#tabs-1" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-1">Use streaming sound source</a></li>
+            <li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="tabs-2" aria-labelledby="ui-id-2" aria-selected="false"><a href="http://ianreah.com/audio-visualizer-experiments/frequency-bar-chart.html#tabs-2" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-2">Use local sound source (experimental)</a></li>
+        </ul>
+        <div id="tabs-1" aria-labelledby="ui-id-1" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" aria-expanded="true" aria-hidden="false">
+            <audio id="player" controls="controls" src="http://ianreah.apphb.com/sounds/movement%20proposition.mp3" crossorigin="anonymous"></audio>
+			<p><strong>Music: </strong><em>Movement Proposition,</em> Kevin MacLeod (<a href="http://incompetech.com/">incompetech.com</a>)</p>
+        </div>
+	    <div id="tabs-2" aria-labelledby="ui-id-2" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" aria-expanded="false" aria-hidden="true" style="display: none;">
+		    <p>Enable the 'Web Audio Input' experimental feature (chrome://flags/) and allow the web page to
+			    access your microphone when prompted.</p>
+		    <p>Depending on your hardware, you may be able to get it to use your sound card's 'stereo mix' or 'what u hear' feature
+			    to use audio from other applications as input to the visualiser.</p>
+			<p>If not, you'll just have to sing into your microphone! ;-)</p>
+	    </div>
+    </div>
+
+	<p class="hideIfNoApi"><strong>FPS: </strong><span id="fps">44</span></p>
+	<div class="hideIfNoApi" id="visualisation">
+<div style="left: 0px; height: 247px;"></div><div style="left: 15px; height: 231px;"></div><div style="left: 30px; height: 179px;"></div><div style="left: 45px; height: 109px;"></div><div style="left: 60px; height: 114px;"></div><div style="left: 75px; height: 112px;"></div><div style="left: 90px; height: 114px;"></div><div style="left: 105px; height: 119px;"></div><div style="left: 120px; height: 107px;"></div><div style="left: 135px; height: 91px;"></div><div style="left: 150px; height: 100px;"></div><div style="left: 165px; height: 97px;"></div><div style="left: 180px; height: 93px;"></div><div style="left: 195px; height: 88px;"></div><div style="left: 210px; height: 99px;"></div><div style="left: 225px; height: 99px;"></div><div style="left: 240px; height: 92px;"></div><div style="left: 255px; height: 99px;"></div><div style="left: 270px; height: 88px;"></div><div style="left: 285px; height: 86px;"></div><div style="left: 300px; height: 91px;"></div><div style="left: 315px; height: 95px;"></div><div style="left: 330px; height: 100px;"></div><div style="left: 345px; height: 98px;"></div><div style="left: 360px; height: 91px;"></div><div style="left: 375px; height: 84px;"></div><div style="left: 390px; height: 84px;"></div><div style="left: 405px; height: 79px;"></div><div style="left: 420px; height: 68px;"></div><div style="left: 435px; height: 47px;"></div><div style="left: 450px; height: 22px;"></div><div style="left: 465px; height: 14px;"></div></div>
+
+    <p class="showIfNoApi">Unable to run this Web Audio API example. <a href="http://caniuse.com/#feat=audio-api">Check browser support</a></p>
+	
+	<script>
+		var require = {
+			baseUrl: "scripts",
+		};
+	</script>
+	<script src="./Frequency Bar Chart_files/require-jquery.js.download"></script>
+	<script>
+		require(['AudioAnalyser', 'frequency-bar-chart', 'jquery', 'jquery-ui.tabs'], function (audioAnalyser, visualiser, $) {
+			// Don't do anything if the Web Audio API isn't supported
+			if (audioAnalyser.supported === false) {
+				$(".hideIfNoApi").hide();
+				$(".showIfNoApi").show();
+				return;
+			}
+
+			// Set up the jquery-ui tabs to switch visualiser inputs between streaming
+			// from the media player and using the local sound source
+			$("#tabs").tabs({
+				beforeActivate: function (event, ui) {
+					switch (ui.newTab.index()) {
+					case 0:
+						audioAnalyser.fromMediaPlayer();
+						break;
+					case 1:
+						audioAnalyser.fromLocalSource();
+						break;
+					}
+				}
+			});
+			
+			// Initialise the analyser & audio routing
+			audioAnalyser.initialise($("#player"), 64, 0.8);
+			audioAnalyser.fromMediaPlayer();
+
+			// Kick it off...				
+			audioAnalyser.displayFps($('#fps'));
+			visualiser.go();
+		});
+	</script>
+
+
+</body></html>
