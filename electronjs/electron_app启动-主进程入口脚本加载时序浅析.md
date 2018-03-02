@@ -1,3 +1,7 @@
+# electron app启动: 主进程入口脚本加载时序浅析
+
+![electron](resources/0.jpg)
+
 本文将使用[Debugging the Main Process | Electron](https://electronjs.org/docs/tutorial/debugging-main-process)中的方法，进行主线程的调试，主要介绍了node启动electron app入口脚本前后的时序。 
 
 ## 一、准备知识，如对electron 已了解，请略过
