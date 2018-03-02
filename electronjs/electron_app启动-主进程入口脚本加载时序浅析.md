@@ -2,14 +2,9 @@
 
 ## 一、准备知识，如对electron 已了解，请略过
 
-阅读本文前需要了解electron基本概念，可参见：[Quick Start | Electron](https://electronjs.org/docs/tutorial/quick-start)  
-
-Electron通过将Chromium和Node.js合并到同一个运行时环境中，利用HTML，CSS和JavaScript来构建跨平台桌面应用程序。  
-
-由于基于node环境，因此所有 Node. js 的内置模块 都可用在 Electron中运行。   
+阅读本文前需要了解electron基本概念，可参见：[Quick Start | Electron](https://electronjs.org/docs/tutorial/quick-start)。Electron通过将Chromium和Node.js合并到同一个运行时环境中，利用HTML，CSS和JavaScript来构建跨平台桌面应用程序。由于基于node环境，因此所有 Node. js 的内置模块 都可用在 Electron中运行。   
 
 主流程 vs 渲染流程 脚本的概念，请参见：[Electron Application Architecture | Electron](https://electronjs.org/docs/tutorial/application-architecture#main-and-renderer-processes)  
-
 主进程脚本就像一个普通的Node. js 脚本:
 ```javascript
 const {app, BrowserWindow} = require('electron')
@@ -34,8 +29,9 @@ const {app, BrowserWindow} = require('electron')
 ```
 ## 二、时序图 - node启动electron app入口脚本前后
 
-1) 图片不清楚，查看原图请点击：`https://raw.githubusercontent.com/opennext/note/master/electronjs/sequences/electron_runtime_sequence_1.png` 。
-2) 本图以 [electron/electron-quick-start](https://github.com/electron/electron-quick-start) 为例。
+1) 图片不清楚，查看原图请点击：`https://raw.githubusercontent.com/opennext/note/master/electronjs/sequences/electron_runtime_sequence_1.png` 。  
+2) 时序图源码：https://github.com/opennext/note/tree/master/electronjs/sequences 
+3) 本图以 [electron/electron-quick-start](https://github.com/electron/electron-quick-start) 为例。
 
 ![from node core to main.js](https://raw.githubusercontent.com/opennext/note/master/electronjs/sequences/electron_runtime_sequence_1.png)
 
@@ -90,3 +86,6 @@ To start debugging, open the following URL in Chrome:
 2. chrome中打开上一步uri，得到调试界面
 
 ![electron app 主进程调试界面](resources/1.jpg)
+
+
+**本文知乎链接： https://www.zhihu.com/people/opennext/posts**
