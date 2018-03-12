@@ -19,4 +19,14 @@
 
 #### 2. [BrowserWindow](sequences/README.md)
 
+### Resource
+
+- Essential Electron  
+http://jlord.us/essential-electron/#stay-in-touch  
+
+- Cross-Platform Desktop Applications  
+Using Node, Electron, and NW.js  
+
+https://www.manning.com/books/cross-platform-desktop-applications
+
 
