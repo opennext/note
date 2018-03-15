@@ -31,4 +31,11 @@
 |术语|解释|公式|原公式|
 |-|-|-|-|
 |SV|进度偏差|EV-PV|BCWP-BCWS|
-|SPI|进度绩效指数|EV/PV||
+|SPI|进度绩效指数|EV/PV|BCWP-BCWS|
+|CV|成本偏差|EV-AC|BCWP-ACWP|
+|CPI|成本绩效指数|EV/AC|BCWP/ACWP|
+|ETC|待完工估算|剩余工作的新估算||
+|EAC|完工估算|AC+ETC||
+|VAC|完工偏差|BAC-EAC||
+|TCPI|完工尚需绩效指数|剩余工作（BAC-EV）/剩余资金（BAC-AC）或（EAC-AC）||
+|PC（%）|完工百分率|EV/BAC|BCWP/BAC|
