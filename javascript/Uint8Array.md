@@ -3,6 +3,26 @@
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array 
 
 
+Uint8Array 数组类型表示一个8位无符号整型数组，创建时内容被初始化为0。创建完后，可以以对象的方式或使用数组下标索引的方式引用数组中的元素。  
+Uint8Array(length);// 创建初始化为0，包含length个元素的无符号整型数组  
+Uint8Array(typedArray);  
+Uint8Array(object);  
+Uint8Array(buffer, [, byteOffset [, length]]);  
+- 属性
+Uint9Array.BYTES_PER_ELEMENT  
+返回数组中元素的字节，Uint8Array中返回1字节。  
+Uint8Array.length  
+数组的长度  
+Uint8Array.name  
+返回构造名的字符串，对Uint8Array类型而言返回Uint8Array  
+Uint8Array.prototype 
+TypedArray 对象的原型.  
+- 方法
+Uint8Array.from()  
+从一个数组或可迭代的对象创建一个新的Uint8Array数组，可参见Array.from().   
+Uint8Array.of()  
+通过一个可变数目的参数创建一个新的Uint8Array数组，可参见Array.of().  
+
 # TypedArray  
 https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
 
