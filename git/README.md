@@ -5,4 +5,9 @@ the lite version of Git Book https://www.git-scm.com/book/zh/v2.
 
 英文版原文：https://github.com/progit/progit2  
 
-中文版原文：https://www.git-scm.com/book/zh/v2
+中文版原文：https://www.git-scm.com/book/zh/v2 
+
+
+http://gitolite.com/git-pull--rebase.html
+
+
