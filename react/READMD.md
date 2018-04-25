@@ -7,3 +7,4 @@ a primary goal of Fiber is to enable React to take advantage of scheduling:
 - reuse previously completed work
 - abort work if it's no longer needed
 
+![](1.png)
