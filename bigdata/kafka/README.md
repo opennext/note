@@ -4,6 +4,6 @@
 
 *KafkaOffsetMonitor* https://github.com/quantifind/KafkaOffsetMonitor
 
-*常用名利*  http://orchome.com/454
+*常用CMD*  http://orchome.com/454
 
 
